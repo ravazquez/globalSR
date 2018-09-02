@@ -1,5 +1,4 @@
 ﻿#region usings
-using System.IO;
 using VVVV.PluginInterfaces.V1;
 using VVVV.PluginInterfaces.V2;
 using VVVV.Utils.VMath;

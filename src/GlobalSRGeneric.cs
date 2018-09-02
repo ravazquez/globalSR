@@ -1,5 +1,5 @@
 ﻿#region usings
-using VVVV.PluginInterfaces.V1;
+using System.Collections.Generic;
 using VVVV.PluginInterfaces.V2;
 #endregion usings
 
@@ -13,7 +13,7 @@ namespace GlobalSR
 
         public ISpread<bool> FClear;
 
-        private T previousValue = default(T);
+        private List<T> previousValue;
         private string previousName = null;
 
         //called when data for any output pin is requested
@@ -21,38 +21,45 @@ namespace GlobalSR
         {
             if (FName[0] != null)
             {
-                if (FClear[0] && GlobalRepository<T>.entries.ContainsKey(FName[0]))
-                    GlobalRepository<T>.entries[FName[0]].Clear();
-                if (FName[0] != previousName)
+                if (previousValue == null || previousValue.Count != FInput.SliceCount)
                 {
-                    //lower subscription count for previousName and remove it altogether if count is 0
-                    if (previousName != null && GlobalRepository<T>.subscriptions.ContainsKey(previousName))
-                    {
-                        GlobalRepository<T>.subscriptions[previousName]--;
-                        if (GlobalRepository<T>.subscriptions[previousName] == 0)
-                        {
-                            GlobalRepository<T>.subscriptions.Remove(previousName);
-                            GlobalRepository<T>.entries.Remove(previousName);
-                        }
-                    }
-                    previousName = FName[0];
-
-                    //create subscription if Name[0]
-                    if (!GlobalRepository<T>.subscriptions.ContainsKey(FName[0]))
-                        GlobalRepository<T>.subscriptions.Add(FName[0], 1);
-                    else
-                        GlobalRepository<T>.subscriptions[FName[0]]++;
+                    previousValue = new List<T>(new T[FInput.SliceCount]);
                 }
-                if (!FInput[0].Equals(previousValue))
+                for (int i = 0; i < FInput.Count; i++)
                 {
-                    previousValue = FInput[0];
-                    if (GlobalRepository<T>.entries.ContainsKey(FName[0]))
-                        GlobalRepository<T>.entries[FName[0]].Add(FInput[0]);
-                    else
+                    if (FClear[0] && GlobalRepository<T>.entries.ContainsKey(FName[0]))
+                        GlobalRepository<T>.entries[FName[0]].Clear();
+                    if (FName[0] != previousName)
                     {
-                        var list = new System.Collections.Generic.List<T>();
-                        list.Add(FInput[0]);
-                        GlobalRepository<T>.entries.Add(FName[0], list);
+                        //lower subscription count for previousName and remove it altogether if count is 0
+                        if (previousName != null && GlobalRepository<T>.subscriptions.ContainsKey(previousName))
+                        {
+                            GlobalRepository<T>.subscriptions[previousName]--;
+                            if (GlobalRepository<T>.subscriptions[previousName] == 0)
+                            {
+                                GlobalRepository<T>.subscriptions.Remove(previousName);
+                                GlobalRepository<T>.entries.Remove(previousName);
+                            }
+                        }
+                        previousName = FName[0];
+
+                        //create subscription if Name[0]
+                        if (!GlobalRepository<T>.subscriptions.ContainsKey(FName[0]))
+                            GlobalRepository<T>.subscriptions.Add(FName[0], 1);
+                        else
+                            GlobalRepository<T>.subscriptions[FName[0]]++;
+                    }
+                    if (!FInput[i].Equals(previousValue[i]))
+                    {
+                        previousValue[i] = FInput[i];
+                        if (GlobalRepository<T>.entries.ContainsKey(FName[0]))
+                            GlobalRepository<T>.entries[FName[0]].Add(FInput[i]);
+                        else
+                        {
+                            var list = new List<T>();
+                            list.Add(FInput[i]);
+                            GlobalRepository<T>.entries.Add(FName[0], list);
+                        }
                     }
                 }
             }
@@ -72,7 +79,8 @@ namespace GlobalSR
         {
             if (GlobalRepository<T>.entries.ContainsKey(FName[0]))
             {
-                if (FName[0] != null) { 
+                if (FName[0] != null)
+                {
                     if (FClear[0])
                         GlobalRepository<T>.entries[FName[0]].Clear();
                     FOutput.SliceCount = GlobalRepository<T>.entries[FName[0]].Count;
