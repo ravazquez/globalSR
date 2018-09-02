@@ -60,7 +60,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalSRTransform.cs" />
+    <Compile Include="GlobalSRRaw.cs" />
+    <Compile Include="GlobalSRColor.cs" />
     <Compile Include="GlobalSRValue.cs" />
+    <Compile Include="GlobalSRString.cs" />
+    <Compile Include="GlobalSRGeneric.cs" />
     <Compile Include="GlobalRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

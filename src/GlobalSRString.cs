@@ -6,13 +6,13 @@ using VVVV.PluginInterfaces.V2;
 namespace GlobalSR
 {
     #region PluginInfo
-    [PluginInfo(Name = "Global S", Category = "Value", AutoEvaluate = true, Author = "ravazquez")]
+    [PluginInfo(Name = "Global S", Category = "String", AutoEvaluate = true, Author = "ravazquez")]
     #endregion PluginInfo
-    public class GlobalSValue : IPluginEvaluate
+    public class GlobalSString : IPluginEvaluate
     {
         #region fields & pins
         [Input("Input")]
-        public ISpread<float> FInput;
+        public ISpread<string> FInput;
 
         [Input("Name", DefaultString = "")]
         public ISpread<string> FName;
@@ -21,11 +21,11 @@ namespace GlobalSR
         public ISpread<bool> FClear;
         #endregion fields & pins
 
-        GlobalSGeneric<float> s;
+        GlobalSGeneric<string> s;
 
-        private GlobalSValue()
+        private GlobalSString()
         {
-            s = new GlobalSGeneric<float>();
+            s = new GlobalSGeneric<string>();
             s.FInput = FInput;
             s.FName = FName;
             s.FClear = FClear;
@@ -35,7 +35,7 @@ namespace GlobalSR
         {
             if (s == null)
             {
-                s = new GlobalSGeneric<float>();
+                s = new GlobalSGeneric<string>();
             }
             s.FInput = FInput;
             s.FName = FName;
@@ -45,9 +45,9 @@ namespace GlobalSR
     }
 
     #region PluginInfo
-    [PluginInfo(Name = "Global R", Category = "Value", Author = "ravazquez")]
+    [PluginInfo(Name = "Global R", Category = "String", Author = "ravazquez")]
     #endregion PluginInfo
-    public class GlobalRValue : IPluginEvaluate
+    public class GlobalRString : IPluginEvaluate
     {
         #region fields & pins
         [Input("Name", DefaultString = "")]
@@ -58,21 +58,22 @@ namespace GlobalSR
 
 
         [Output("Output")]
-        public ISpread<float> FOutput;
+        public ISpread<string> FOutput;
         #endregion fields & pins
 
-        GlobalRGeneric<float> r;
-        private GlobalRValue()
+        GlobalRGeneric<string> r;
+        private GlobalRString()
         {
-            r = new GlobalRGeneric<float>();
+            r = new GlobalRGeneric<string>();
             r.FClear = FClear;
             r.FName = FName;
+            r.FOutput = FOutput;
         }
         public void Evaluate(int SpreadMax)
         {
             if (r == null)
             {
-                r = new GlobalRGeneric<float>();
+                r = new GlobalRGeneric<string>();
             }
             r.FClear = FClear;
             r.FName = FName;

@@ -1,18 +1,20 @@
 ﻿#region usings
+using System.IO;
 using VVVV.PluginInterfaces.V1;
 using VVVV.PluginInterfaces.V2;
+using VVVV.Utils.VColor;
 #endregion usings
 
 namespace GlobalSR
 {
     #region PluginInfo
-    [PluginInfo(Name = "Global S", Category = "Value", AutoEvaluate = true, Author = "ravazquez")]
+    [PluginInfo(Name = "Global S", Category = "Raw", AutoEvaluate = true, Author = "ravazquez")]
     #endregion PluginInfo
-    public class GlobalSValue : IPluginEvaluate
+    public class GlobalSRaw : IPluginEvaluate
     {
         #region fields & pins
         [Input("Input")]
-        public ISpread<float> FInput;
+        public ISpread<Stream> FInput;
 
         [Input("Name", DefaultString = "")]
         public ISpread<string> FName;
@@ -21,11 +23,11 @@ namespace GlobalSR
         public ISpread<bool> FClear;
         #endregion fields & pins
 
-        GlobalSGeneric<float> s;
+        GlobalSGeneric<Stream> s;
 
-        private GlobalSValue()
+        private GlobalSRaw()
         {
-            s = new GlobalSGeneric<float>();
+            s = new GlobalSGeneric<Stream>();
             s.FInput = FInput;
             s.FName = FName;
             s.FClear = FClear;
@@ -35,7 +37,7 @@ namespace GlobalSR
         {
             if (s == null)
             {
-                s = new GlobalSGeneric<float>();
+                s = new GlobalSGeneric<Stream>();
             }
             s.FInput = FInput;
             s.FName = FName;
@@ -45,9 +47,9 @@ namespace GlobalSR
     }
 
     #region PluginInfo
-    [PluginInfo(Name = "Global R", Category = "Value", Author = "ravazquez")]
+    [PluginInfo(Name = "Global R", Category = "Raw", Author = "ravazquez")]
     #endregion PluginInfo
-    public class GlobalRValue : IPluginEvaluate
+    public class GlobalRRaw : IPluginEvaluate
     {
         #region fields & pins
         [Input("Name", DefaultString = "")]
@@ -58,21 +60,22 @@ namespace GlobalSR
 
 
         [Output("Output")]
-        public ISpread<float> FOutput;
+        public ISpread<Stream> FOutput;
         #endregion fields & pins
 
-        GlobalRGeneric<float> r;
-        private GlobalRValue()
+        GlobalRGeneric<Stream> r;
+        private GlobalRRaw()
         {
-            r = new GlobalRGeneric<float>();
+            r = new GlobalRGeneric<Stream>();
             r.FClear = FClear;
             r.FName = FName;
+            r.FOutput = FOutput;
         }
         public void Evaluate(int SpreadMax)
         {
             if (r == null)
             {
-                r = new GlobalRGeneric<float>();
+                r = new GlobalRGeneric<Stream>();
             }
             r.FClear = FClear;
             r.FName = FName;

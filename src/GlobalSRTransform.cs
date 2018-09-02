@@ -1,18 +1,20 @@
 ﻿#region usings
+using System.IO;
 using VVVV.PluginInterfaces.V1;
 using VVVV.PluginInterfaces.V2;
+using VVVV.Utils.VMath;
 #endregion usings
 
 namespace GlobalSR
 {
     #region PluginInfo
-    [PluginInfo(Name = "Global S", Category = "Value", AutoEvaluate = true, Author = "ravazquez")]
+    [PluginInfo(Name = "Global S", Category = "Transform", AutoEvaluate = true, Author = "ravazquez")]
     #endregion PluginInfo
-    public class GlobalSValue : IPluginEvaluate
+    public class GlobalSTransform : IPluginEvaluate
     {
         #region fields & pins
         [Input("Input")]
-        public ISpread<float> FInput;
+        public ISpread<Matrix4x4> FInput;
 
         [Input("Name", DefaultString = "")]
         public ISpread<string> FName;
@@ -21,11 +23,11 @@ namespace GlobalSR
         public ISpread<bool> FClear;
         #endregion fields & pins
 
-        GlobalSGeneric<float> s;
+        GlobalSGeneric<Matrix4x4> s;
 
-        private GlobalSValue()
+        private GlobalSTransform()
         {
-            s = new GlobalSGeneric<float>();
+            s = new GlobalSGeneric<Matrix4x4>();
             s.FInput = FInput;
             s.FName = FName;
             s.FClear = FClear;
@@ -35,7 +37,7 @@ namespace GlobalSR
         {
             if (s == null)
             {
-                s = new GlobalSGeneric<float>();
+                s = new GlobalSGeneric<Matrix4x4>();
             }
             s.FInput = FInput;
             s.FName = FName;
@@ -45,9 +47,9 @@ namespace GlobalSR
     }
 
     #region PluginInfo
-    [PluginInfo(Name = "Global R", Category = "Value", Author = "ravazquez")]
+    [PluginInfo(Name = "Global R", Category = "Transform", Author = "ravazquez")]
     #endregion PluginInfo
-    public class GlobalRValue : IPluginEvaluate
+    public class GlobalRTransform : IPluginEvaluate
     {
         #region fields & pins
         [Input("Name", DefaultString = "")]
@@ -58,21 +60,22 @@ namespace GlobalSR
 
 
         [Output("Output")]
-        public ISpread<float> FOutput;
+        public ISpread<Matrix4x4> FOutput;
         #endregion fields & pins
 
-        GlobalRGeneric<float> r;
-        private GlobalRValue()
+        GlobalRGeneric<Matrix4x4> r;
+        private GlobalRTransform()
         {
-            r = new GlobalRGeneric<float>();
+            r = new GlobalRGeneric<Matrix4x4>();
             r.FClear = FClear;
             r.FName = FName;
+            r.FOutput = FOutput;
         }
         public void Evaluate(int SpreadMax)
         {
             if (r == null)
             {
-                r = new GlobalRGeneric<float>();
+                r = new GlobalRGeneric<Matrix4x4>();
             }
             r.FClear = FClear;
             r.FName = FName;
