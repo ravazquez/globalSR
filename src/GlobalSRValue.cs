@@ -14,10 +14,10 @@ namespace GlobalSR
         [Input("Input")]
         public ISpread<float> FInput;
 
-        [Input("Name", DefaultString = "")]
+        [Input("Name", DefaultString = "", IsSingle = true)]
         public ISpread<string> FName;
 
-        [Input("Clear", DefaultBoolean = false)]
+        [Input("Clear", DefaultBoolean = false, IsSingle = true)]
         public ISpread<bool> FClear;
         #endregion fields & pins
 
@@ -50,10 +50,10 @@ namespace GlobalSR
     public class GlobalRValue : IPluginEvaluate
     {
         #region fields & pins
-        [Input("Name", DefaultString = "")]
+        [Input("Name", DefaultString = "", IsSingle = true)]
         public ISpread<string> FName;
 
-        [Input("Clear", DefaultBoolean = false)]
+        [Input("Clear", DefaultBoolean = false, IsSingle = true)]
         public ISpread<bool> FClear;
 
 
