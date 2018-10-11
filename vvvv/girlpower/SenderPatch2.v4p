@@ -1,0 +1,229 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha37.1.dtd" >
+   <PATCH nodename="D:\YR_Projects\globalSR\vvvv\girlpower\SenderPatch2.v4p" scrollx="0" scrolly="0" systemname="SenderPatch2" filename="C:\Users\YRLive\Desktop\GlobalSR_2\vvvv\girlpower\SenderPatch2.v4p">
+   <BOUNDS type="Window" left="17475" top="585" width="4830" height="4500">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="870" top="2220" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="870" top="2220" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="variable1">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Name">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="2" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="720" top="1590" width="465" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="720" top="1590" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.53">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Counter (Animation)" nodename="Counter (Animation)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="720" top="1125" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Up" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Overflow" visible="1">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Increment" slicecount="1" values="0.1">
+   </PIN>
+   <PIN pinname="Reset" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Output" dstnodeid="2" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="1485" top="570" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Change" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" visible="1" values="2">
+   </PIN>
+   <PIN pinname="Reset" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Change" dstnodeid="1" dstpinname="Up" linkstyle="VHV">
+   <LINKPOINT x="1885" y="968">
+   </LINKPOINT>
+   <LINKPOINT x="725" y="968">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="8" systemname="IOBox (String)" debug="0">
+   <BOUNDS type="Box" left="2880" top="2220" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2880" top="2220" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="variable2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Name">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2730" top="1590" width="465" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2730" top="1590" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.53">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Counter (Animation)" nodename="Counter (Animation)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="2730" top="1125" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Up" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Overflow" visible="1">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Increment" slicecount="1" values="0.1">
+   </PIN>
+   <PIN pinname="Reset" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Down" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Output" dstnodeid="7" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Change" dstnodeid="6" dstpinname="Down" linkstyle="VHV">
+   <LINKPOINT x="1945" y="968">
+   </LINKPOINT>
+   <LINKPOINT x="2840" y="968">
+   </LINKPOINT>
+   </LINK>
+   <PACK Name="addonpack" Version="36.0.0">
+   </PACK>
+   <NODE systemname="Global S (Value)" filename="..\..\lib\GlobalSR.dll" nodename="Global S (Value)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="705" top="3150" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="3150" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Clear" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Name" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Avoid Duplicates" visible="1">
+   </PIN>
+   <PIN pinname="Add" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Global S (Value)" filename="..\..\lib\GlobalSR.dll" nodename="Global S (Value)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="2730" top="3150" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2730" top="3150" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Clear" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Name" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Avoid Duplicates" visible="1">
+   </PIN>
+   <PIN pinname="Add" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="10">
+   <BOUNDS type="Box" left="1050" top="2625" width="285" height="330">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1050" top="2625" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="12" dstpinname="Avoid Duplicates">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="12" dstpinname="Add" linkstyle="VHV">
+   <LINKPOINT x="1110" y="3025">
+   </LINKPOINT>
+   <LINKPOINT x="1230" y="3005">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9">
+   <BOUNDS type="Box" left="3075" top="2625" width="285" height="330">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3075" top="2625" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Avoid Duplicates">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Add" linkstyle="VHV">
+   <LINKPOINT x="3135" y="3085">
+   </LINKPOINT>
+   <LINKPOINT x="3255" y="3065">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="12" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Output String" dstnodeid="11" dstpinname="Name">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Output String" dstnodeid="12" dstpinname="Name">
+   </LINK>
+   <PACK Name="dx11" Version="1.3.1">
+   </PACK>
+   </PATCH>

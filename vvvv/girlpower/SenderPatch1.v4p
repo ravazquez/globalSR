@@ -1,0 +1,287 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha37.1.dtd" >
+   <PATCH nodename="D:\YR_Projects\globalSR\vvvv\girlpower\SenderPatch1.v4p" scrollx="0" scrolly="0" systemname="SenderPatch1" filename="C:\Users\YRLive\Desktop\GlobalSR_2\vvvv\girlpower\SenderPatch1.v4p">
+   <BOUNDS type="Window" left="12855" top="585" width="4830" height="4500">
+   </BOUNDS>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="37" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1785" top="1770" width="375" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1785" top="1770" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Clear">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="36.0.0">
+   </PACK>
+   <NODE systemname="Counter (Animation)" nodename="Counter (Animation)" componentmode="Hidden" id="92">
+   <BOUNDS type="Node" left="555" top="1035" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Up" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Overflow" visible="1">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Reset" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="Counter (Animation)" nodename="Counter (Animation)" componentmode="Hidden" id="104">
+   <BOUNDS type="Node" left="2565" top="1035" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Up" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Overflow" visible="1">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Reset" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Down" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Underflow" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="134" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="705" top="2130" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="705" top="2130" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="variable1">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Name">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="133" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="555" top="1500" width="465" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="555" top="1500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.4">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <NODE systemname="Global S (Value)" filename="..\..\lib\GlobalSR.dll" nodename="Global S (Value)" componentmode="Hidden" id="131">
+   <BOUNDS type="Node" left="540" top="3075" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="540" top="3075" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Clear" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Name" visible="1">
+   </PIN>
+   <PIN pinname="Avoid Duplicates" visible="1">
+   </PIN>
+   <PIN pinname="Add" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="133" srcpinname="Y Output Value" dstnodeid="131" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="134" srcpinname="Output String" dstnodeid="131" dstpinname="Name" linkstyle="PolyLine" hiddenwhenlocked="0">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="130">
+   <BOUNDS type="Node" left="1320" top="480" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Change" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" visible="1" values="2">
+   </PIN>
+   <PIN pinname="Reset" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="129" systemname="IOBox (String)" debug="0">
+   <BOUNDS type="Box" left="2715" top="2130" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2715" top="2130" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="variable2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Name">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="128" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2565" top="1500" width="465" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2565" top="1500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.4">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <NODE systemname="Global S (Value)" filename="..\..\lib\GlobalSR.dll" nodename="Global S (Value)" componentmode="Hidden" id="126">
+   <BOUNDS type="Node" left="2550" top="3075" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2550" top="3075" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Clear" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Name" visible="1">
+   </PIN>
+   <PIN pinname="Avoid Duplicates" visible="1">
+   </PIN>
+   <PIN pinname="Add" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="128" srcpinname="Y Output Value" dstnodeid="126" dstpinname="Input" linkstyle="PolyLine">
+   </LINK>
+   <LINK srcnodeid="129" srcpinname="Output String" dstnodeid="126" dstpinname="Name" linkstyle="PolyLine" hiddenwhenlocked="0">
+   </LINK>
+   <LINK srcnodeid="130" srcpinname="Change" dstnodeid="92" dstpinname="Up" linkstyle="VHV">
+   <LINKPOINT x="1665" y="878">
+   </LINKPOINT>
+   <LINKPOINT x="615" y="878">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="92" srcpinname="Output" dstnodeid="133" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="131" dstpinname="Clear" linkstyle="VHV">
+   <LINKPOINT x="1815" y="2615">
+   </LINKPOINT>
+   <LINKPOINT x="1185" y="2785">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="135" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3795" top="1770" width="375" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3795" top="1770" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Clear">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="135" srcpinname="Y Output Value" dstnodeid="126" dstpinname="Clear" linkstyle="VHV">
+   <LINKPOINT x="3825" y="2615">
+   </LINKPOINT>
+   <LINKPOINT x="3195" y="2785">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="92" srcpinname="Overflow" dstnodeid="37" dstpinname="Y Input Value" linkstyle="VHV">
+   <LINKPOINT x="1725" y="1573">
+   </LINKPOINT>
+   <LINKPOINT x="1800" y="1503">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="130" srcpinname="Change" dstnodeid="104" dstpinname="Down" linkstyle="VHV">
+   <LINKPOINT x="1725" y="878">
+   </LINKPOINT>
+   <LINKPOINT x="2730" y="878">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Output" dstnodeid="128" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Underflow" dstnodeid="135" dstpinname="Y Input Value" linkstyle="VHV">
+   <LINKPOINT x="3195" y="1523">
+   </LINKPOINT>
+   <LINKPOINT x="3780" y="1523">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="136">
+   <BOUNDS type="Box" left="885" top="2550" width="285" height="330">
+   </BOUNDS>
+   <BOUNDS type="Node" left="885" top="2550" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="136" srcpinname="Y Output Value" dstnodeid="131" dstpinname="Avoid Duplicates">
+   </LINK>
+   <LINK srcnodeid="136" srcpinname="Y Output Value" dstnodeid="131" dstpinname="Add" linkstyle="VHV">
+   <LINKPOINT x="945" y="2970">
+   </LINKPOINT>
+   <LINKPOINT x="1065" y="2970">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="137">
+   <BOUNDS type="Box" left="2895" top="2550" width="285" height="330">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2895" top="2550" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="137" srcpinname="Y Output Value" dstnodeid="126" dstpinname="Avoid Duplicates">
+   </LINK>
+   <LINK srcnodeid="137" srcpinname="Y Output Value" dstnodeid="126" dstpinname="Add" linkstyle="VHV">
+   <LINKPOINT x="2955" y="2970">
+   </LINKPOINT>
+   <LINKPOINT x="3075" y="2970">
+   </LINKPOINT>
+   </LINK>
+   <PACK Name="dx11" Version="1.3.1">
+   </PACK>
+   </PATCH>
