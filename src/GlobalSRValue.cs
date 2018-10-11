@@ -15,10 +15,16 @@ namespace GlobalSR
         public ISpread<float> FInput;
 
         [Input("Name", DefaultString = "", IsSingle = true)]
-        public ISpread<string> FName;
+        public ISpread<string> FInName;
+
+        [Input("Avoid Duplicates", DefaultBoolean = false)]
+        public ISpread<bool> FInAvoidDuplicates;
+
+        [Input("Add", DefaultBoolean = false)]
+        public ISpread<bool> FInAdd;
 
         [Input("Clear", DefaultBoolean = false, IsSingle = true)]
-        public ISpread<bool> FClear;
+        public ISpread<bool> FInClear;
         #endregion fields & pins
 
         GlobalSGeneric<float> s;
@@ -27,8 +33,10 @@ namespace GlobalSR
         {
             s = new GlobalSGeneric<float>();
             s.FInput = FInput;
-            s.FName = FName;
-            s.FClear = FClear;
+            s.FInName = FInName;
+            s.FInAvoidDuplicates = FInAvoidDuplicates;
+            s.FInAdd = FInAdd;
+            s.FInClear = FInClear;
         }
 
         public void Evaluate(int SpreadMax)
@@ -38,8 +46,10 @@ namespace GlobalSR
                 s = new GlobalSGeneric<float>();
             }
             s.FInput = FInput;
-            s.FName = FName;
-            s.FClear = FClear;
+            s.FInName = FInName;
+            s.FInAvoidDuplicates = FInAvoidDuplicates;
+            s.FInAdd = FInAdd;
+            s.FInClear = FInClear;
             s.Evaluate(SpreadMax);
         }
     }
@@ -51,10 +61,10 @@ namespace GlobalSR
     {
         #region fields & pins
         [Input("Name", DefaultString = "", IsSingle = true)]
-        public ISpread<string> FName;
+        public ISpread<string> FInName;
 
         [Input("Clear", DefaultBoolean = false, IsSingle = true)]
-        public ISpread<bool> FClear;
+        public ISpread<bool> FInClear;
 
 
         [Output("Output")]
@@ -65,8 +75,8 @@ namespace GlobalSR
         private GlobalRValue()
         {
             r = new GlobalRGeneric<float>();
-            r.FClear = FClear;
-            r.FName = FName;
+            r.FInClear = FInClear;
+            r.FInName = FInName;
         }
         public void Evaluate(int SpreadMax)
         {
@@ -74,8 +84,8 @@ namespace GlobalSR
             {
                 r = new GlobalRGeneric<float>();
             }
-            r.FClear = FClear;
-            r.FName = FName;
+            r.FInClear = FInClear;
+            r.FInName = FInName;
             r.FOutput = FOutput;
             r.Evaluate(SpreadMax);
         }
