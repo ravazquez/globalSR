@@ -2,3 +2,5 @@
 /src/obj/
 /packages/
 *~.xml
+*.pdb
+
